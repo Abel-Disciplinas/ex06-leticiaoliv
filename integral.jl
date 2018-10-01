@@ -1,14 +1,17 @@
 #I
 function simpsonrep(f::Function, a::Real, b::Real; m = 101)
-    m % 2 == 0 && (m += 1)
-    h = (b - a) / (m - 1)
-    I = I1 = I2 = 0.0
+    I = 0.0
+    if m%2 == 0
+        m +=1
+    end
+    I1 = I2 = 0.0
+    h = (b - a)/(m -1)
     xi = a + h
-    xj = a + 2h
     for i=2:2:m-1
         I1 += f(xi)
         xi += 2h
     end
+    xj = a + 2h
     for j=3:2:m-2
         I2 += f(xj)
         xj += 2h
