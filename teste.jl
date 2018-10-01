@@ -8,8 +8,7 @@ function teste()
     k = 1
     for (f, a, b, Iexato, M) in [(x -> exp(4x), 0, 2, (exp(8) - 1)/4, 4^4 * exp(8)),
                                  (x -> 2*sin(2x), 0, π/2, 2, 32*sin(π)),
-                                 (x -> exp(3x) + 27x, 0, 1, (2*exp(6) - 2*exp(3) + 243)/6, 81 * exp(3)),
-                                 (x -> )]
+                                 (x -> exp(3x) + 27x, 0, 1, (2*exp(6) - 2*exp(3) + 243)/6, 81 * exp(3))]
         @testset "Função $k" begin
             @test abs(Iexato - simpsoneps(f, a, b, 1e-8, M=M)) < 1e-8
             @test abs(Iexato - simpson_adaptivo(f, a, b, 1e-8)) < 1e-8
