@@ -17,7 +17,7 @@ function simpsonrep(f::Function, a::Real, b::Real; m = 101)
         xj += 2h
     end
     I = h/3 * (f(a) + 4 * I1 + 2 * I2 + f(b))
-    return I
+    return
 end
 
 
